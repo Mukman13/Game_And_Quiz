@@ -1,0 +1,343 @@
+<!DOCTYPE htlml>
+<html> 
+<head>
+   <title>
+    Mukund's Final Project
+    </title> 
+    <script>
+ //GAME
+       function startGame(){
+           alert("Wlecome to Island Adventure!");
+           var name = prompt("What is your name?");
+           var weapon = prompt("What weapon would you like, " + name + "? You can cose from a SWORD, AX, or SPEAR.");
+           alert("Verywell. Lets begin!");
+           alert("You were flying back home from a very special expedition. Suddenly, you heard a thump, and when you looked out of the window, the engine caught fire!");
+           alert("You felt the plane tilt down, and then it crashed.");
+           alert("Now you are stranded on an island in the middle of the ocean with no hopes of rescue...");
+            startLevelOne(name, weapon);
+       } 
+        function startLevelOne(name, weapon){
+            alert("LEVEL 1");
+            alert("There is a forest ahead of you. All you have is your " + weapon + " and your FLIGHT SKILLS.");
+            var exploreReply = prompt("Would you like to explore the forest?(yes or no, lowercase) WARNING: Your answer will affect gameplay!");
+            if(exploreReply == "yes"){
+                alert("Wise choice.");
+                alert("After hours of elploration, you discover an abandoned secert base.");
+                var baseReply = prompt("Would you like to explore the base?(yes or no, lowercase) WARNING: Your answer will affect gameplay!");
+            }
+            else{
+                alert("Your loss. " + name + " dies a slow and painfull death. We warned you.");
+                endGame(name);
+                return 0;
+            }
+            if(baseReply == "yes"){
+                    startLevelTwo(name, weapon);
+                }
+            else{
+                alert("Too bad. You survive on the island for the rest of your life and die peacfully in your sleep.");
+                endGame(name);
+            }
+        }
+        function startLevelTwo(name, weapon){
+            alert("LEVEL 2");
+            alert("Inside of the base, you find a chest.");
+            var chestOpen = prompt("Would you like to open the chest?(yes or no, lowercase) WARNING: Your chioce will affect your life!");
+            if(chestOpen == "yes"){
+                var chestItems = ["nothing", "a knife", "a mirror", "a wrench"];
+                var chest = Math.floor(Math.random() * 4);
+                alert("You get " + chestItems[chest] + "!");
+                alert("Suddently, you hear a growl behind you.");
+                alert("It's a bear!");
+                var fightB = prompt("Would you like to fight, or run?");
+                if(fightB == "fight"){
+                    alert("You take out your " + weapon + " and hit the bear.");
+                    alert("Your " + weapon + " slits the bear's throat and it bleads to death. You eat it for dinner. That was as close call!");
+                    epilouge(name);
+                    return 0;
+                }
+            else{
+                alert("You blindly run away from the bear, but the bear is faster.");
+                alert("You get decapitated by the bear");
+                endGame(name);
+                return 0;
+            }
+            }
+            else{
+                alert("A bear attcks you from behind. You are savagly ripped limb from limb and blead to death.");
+                endGame(name);
+            }
+        }
+        function epilouge(name){
+            alert("You exlplore the base more and find a...plane!");
+                alert("A means of escape!");
+                alert("You use everything you have to get the plane in working order.");
+                alert("After 2 weeks of building, the plane is ready!");
+                var flightAn = prompt("Would you like to fly home?(yes or no, lowercase)");
+            if(flightAn == "no"){
+                alert("Because you didn't fly it immediatly, while you were sleeping, the plane blew up.");
+                alert("Good thing you didn't fly it.");
+                epilouge2(name);
+            }
+            else{
+                alert("As soon as you turn it on, the plane explodes.");
+                endGame(name);
+            }
+        }
+        function epilouge2(name){
+            alert("After you repair it again, you fly home and live happily ever after.");
+            endGame(name);
+        }
+        function endGame(name){
+            alert(name + "'s journey ends here, for better or for worse. No matter what happened to him/her, we hope you had a fun time playing ISLAND ADVENTURE!");
+        }
+//QUIZ
+        function startQuiz(){
+            var score = 100;
+            var nameQ = prompt("What is your name?");
+            alert("Ok " + nameQ + ", prepare to enter the world, or NOT world, of space.");
+            playQuiz(score, nameQ);
+        }
+        function playQuiz(score, nameQ){
+            alert("You start out with 100 points. Each question answered correctly is 10 points added. Each question answered incorrectly is 5 points subtracted.");
+            Q1(nameQ, score);
+        }
+            function Q1(nameQ, score){
+            var q1 = prompt("How many planets are in our solar system?");
+            if(q1 == "8"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is 8.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                Q2(nameQ, score);
+         }
+            function Q2(nameQ, score){
+            var q2 = prompt("What is the closest planet to the sun?(be carefull of spelling and capitalization for all questions)");
+            if(q2 == "Mercury"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is Mercury.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                Q3(nameQ, score);
+        }
+            function Q3(nameQ, score){
+            var q3 = prompt("A singularity is a _______");
+            if(q3 == "blackhole"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is blackhole.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                Q4(nameQ, score);
+        }
+            function Q4(nameQ, score){
+            var q4 = prompt("Can anything escape a singularity?");
+             if(q4 == "no"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is no.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                Q5(nameQ, score);
+        }
+            function Q5(nameQ, score){
+            var q5 = prompt("What does the ISS stand for?");
+             if(q5 == "International Space Station"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is International Space Station.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                Q6(nameQ, score);
+        }
+            function Q6(nameQ, score){
+            var q6 = prompt("How many rings does Neptune have?(may be a trick question)");
+             if(q6 == "5"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is 5.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                 Q7(nameQ, score);
+                }
+                function Q7(nameQ, score){
+                    var q7 = prompt("How many moons does Jupiter have?");
+                     if(q7 == "67"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is 67.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                    Q8(nameQ, score);
+                }
+                function Q8(nameQ, score){
+                    var q8 = prompt("How often does Jupiter orbit the Sun?(in Earth years)");
+                     if(q8 == "11.8"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is 11.8.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                     Q9(nameQ, score);
+                }
+                function Q9(nameQ, score){
+                    var q9 = prompt("What color is the spot on Jupiter that makes it so unique?");
+                     if(q9 == "red"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is red.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                     Q10(nameQ, score);
+                }
+                function Q10(nameQ, score){
+                    var q10 = prompt("How many Earths could fit inside the Great Red Spot on Jupiter?");
+                     if(q10 == "3"){
+                alert("Correct! 10 points added.");
+                score += 10;
+                alert("You have " + score + " points!");
+            }
+            else{
+                alert("WRONG! The correct answer is 3.");
+                score -= 5;
+                alert("You have " + score + " points.");
+            }
+                    endQuiz(nameQ, score);
+                }
+        function endQuiz(nameQ, score){
+            alert("Conrats " + nameQ + "! You made it to the end of this quiz!");
+            alert("Your score was: " + score + " points. Nice job!");
+        }
+//Rock, Paper, Scissors
+        function rockPaperScissors(){
+            var scoreC = 0;
+            var scoreP = 0;
+            var randomise =0;
+            var playerChoice=0;
+            var choices = 0;
+            for(var rounds = 0; rounds < 3; rounds ++){
+                playerChoice = prompt("Do you cose rock, paper, or scissors?");
+                choices = ["rock", "paper", "scissors"];
+                randomise = Math.floor(Math.random() * 3);
+                if(playerChoice == "rock"){
+                    if(choices[randomise] == "rock"){
+                        alert("It's a tie!");
+                        scoreC += 1;
+                        scoreP += 1;
+                    }
+                    if(choices[randomise] == "paper"){
+                        alert("The computer wins!");
+                        scoreC += 1;
+                    }
+                    if(choices[randomise] == "scissors"){
+                        alert("You win!");
+                        scoreP += 1;
+                    }
+                }
+                if(playerChoice == "paper"){
+                    if(choices[randomise] == "rock"){
+                        alert("You win!");
+                        scoreP += 1;
+                    }
+                    if(choices[randomise] == "paper"){
+                        alert("It's a tie!");
+                        scoreC += 1;
+                        scoreP += 1;
+                    }
+                    if(choices[randomise] == "scissors"){
+                        alert("The computer wins!");
+                        scoreC += 1;
+                    }
+                }
+                if(playerChoice == "scissors"){
+                    if(choices[randomise] == "rock"){
+                        alert("The computer wins!");
+                        scoreC += 1;
+                    }
+                    if(choices[randomise] == "paper"){
+                        alert("You win!");
+                        scoreP += 1;
+                    }
+                    if(choices[randomise] == "scissors"){
+                        alert("It's a tie!");
+                        scoreC += 1;
+                        scoreP += 1;
+                    }
+                }
+            }
+            if(scoreC > scoreP){
+                alert("The computer wins out of all three rounds!");
+                alert("Your score: " + scoreP + ". Better luck next time.");
+                alert("The computer's score: " + scoreC);
+            }
+            if(scoreP > scoreC){
+                alert("You win out of all three rounds!");
+                alert("Your score: " + scoreP + ". Nice job!");
+                alert("The computer's score: " + scoreC);
+            }
+            if(scoreC == scoreP){
+                alert("It's a tie out of all three rounds!");
+                alert("Your score: " + scoreP);
+                alert("The computer's score: " + scoreC);
+            }
+        }
+    </script>
+    </head>
+<body>
+    <h1>
+        Island Adventure Game/Space Quiz
+       </h1>
+    <h4>
+    This is a game of survival of the fittest. Kill or be killed. Be warned:this is a mildly violent game with no graphics.
+    </h4>
+    <input type = "button" value = "Start Game" onclick = "startGame()">
+    <h4>
+    This quiz requires decent knowledge of space. It gets harder the farther you go.
+    </h4>
+    <input type = "button" value = "Start Quiz" onclick = "startQuiz()">
+    <h1>
+    Rock, Paper, Scissors
+    </h1>
+    <h4>
+    This is a rock, paper, scissors mini-game. It will be best out of 3.
+    </h4>
+    <input type = "button" value = "Start Mini-Game" onclick = "rockPaperScissors()">
+    </body>
+</html>
